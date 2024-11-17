@@ -22,7 +22,6 @@ const CourseCard: React.FC<CourseCardProps> = ({
       <div className="h-[200px] bg-red-500 rounded-lg flex items-center justify-center">
         {title}
       </div>
-
       <p className="font-bold text-md mt-4">Materi Kompetensi</p>
       <div className="flex flex-col gap-2 divide-y">
         {competency.map((item, index) => (

@@ -6,7 +6,7 @@ interface MenuItem {
 export const SIDEBARMENU: MenuItem[] = [
   {
     label: "Dashboard",
-    link: "/dashboard",
+    link: "/",
   },
   {
     label: "Modul",
@@ -14,14 +14,14 @@ export const SIDEBARMENU: MenuItem[] = [
   },
   {
     label: "Peserta",
-    link: "/",
+    link: "/peserta",
   },
   {
     label: "Group Chat",
-    link: "/",
+    link: "/group-chat",
   },
   {
     label: "Pemateri",
-    link: "/",
+    link: "/pemateri",
   },
 ];
