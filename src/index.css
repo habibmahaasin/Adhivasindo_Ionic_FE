@@ -1,0 +1,22 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ion-col {
+  text-align: center;
+}
+
+ion-searchbar.custom {
+  --background: transparent;
+  --color: black;
+  --icon-color: black;
+  --border-radius: 8px;
+  width: 300px;
+  box-shadow: none;
+  --box-shadow: none;
+}
+
+ion-searchbar.custom .searchbar-input {
+  border: 2px solid #d0d1d2;
+}
