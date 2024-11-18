@@ -10,7 +10,7 @@ export const SIDEBARMENU: MenuItem[] = [
   },
   {
     label: "Modul",
-    link: "/modul",
+    link: "/competency-module",
   },
   {
     label: "Peserta",

@@ -16,6 +16,9 @@ import IndexPage from "./pages/index";
 import LoginPage from "./pages/login";
 import { AuthProvider } from "@utils/context/auth.context";
 import PrivateRoute from "@components/privateRoute";
+import MainLayout from "@components/Layouts/main.layout";
+import CompetencyModulePage from "./pages/competencyModule";
+
 setupIonicReact();
 
 const App: React.FC = () => {
@@ -24,7 +27,13 @@ const App: React.FC = () => {
       <Router>
         <Switch>
           <Route path="/login" component={LoginPage} />
-          <PrivateRoute path="/" exact component={IndexPage} />
+          <MainLayout>
+            <PrivateRoute path="/" exact component={IndexPage} />
+            <PrivateRoute
+              path="/competency-module"
+              component={CompetencyModulePage}
+            />
+          </MainLayout>
         </Switch>
       </Router>
     </AuthProvider>

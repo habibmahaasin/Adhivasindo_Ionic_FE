@@ -1,6 +1,11 @@
 import { AxiosResponse } from "axios";
 import apiClient from "./api";
-import { ApiResponse, LearningModule } from "../types/learningModule";
+import {
+  ApiResponse,
+  GetLearningModulesParams,
+  LearningModule,
+  PaginatedModules,
+} from "../types/learningModule";
 
 const LearningModuleService = {
   createLearningModule: async (
@@ -17,13 +22,24 @@ const LearningModuleService = {
     }
   },
 
-  getLearningModules: async (): Promise<
-    AxiosResponse<ApiResponse<LearningModule[]>>
+  getLearningModules: async ({
+    limit = 5,
+    search = "",
+    page = 1,
+  }: GetLearningModulesParams): Promise<
+    AxiosResponse<ApiResponse<PaginatedModules>>
   > => {
     try {
-      const response = await apiClient.get<ApiResponse<LearningModule[]>>(
-        "/learning-modules"
+      const params = new URLSearchParams();
+      params.append("limit", limit.toString());
+      if (search) params.append("search", search);
+      params.append("page", page.toString());
+      params.append("show_competency", "true");
+
+      const response = await apiClient.get<ApiResponse<PaginatedModules>>(
+        `/learning-modules?${params.toString()}`
       );
+
       return response;
     } catch (error) {
       throw new Error(`Error fetching learning modules: ${error}`);

@@ -31,7 +31,6 @@ const LoginPage: React.FC = () => {
 
     try {
       await login({ email, password } as User);
-
       setToastMessage("Login successful!");
       setShowToast(true);
     } catch (err) {
